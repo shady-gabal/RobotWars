@@ -43,21 +43,21 @@ typedef NS_ENUM(NSInteger, RobotState){
 
 -(void) goTo:(CGPoint) point{
     CGPoint position = [self position];
-        float angle = [self angleBetweenHeadingDirectionAndWorldPosition: ccp(point.x,point.y)];
+       // float angle = [self angleBetweenHeadingDirectionAndWorldPosition: ccp(point.x+10,point.y+10)];
     
     if(!(position.x == point.x) && !(position.y == point.y)){
-        position = ccp(x,y);
-        float angle = [self angleBetweenHeadingDirectionAndWorldPosition: ccp(point.x,point.y)];
+        //position = ccp(x,y);
+        float angle = [self angleBetweenHeadingDirectionAndWorldPosition: ccp(point.x + 10,point.y + 10)];
         [self turnRobotRight: angle];
         
-        double dx = (point.x-position.x);
-        double dy = (point.y-position.y);
+        double dx = ((point.x+10)-position.x);
+        double dy = ((point.y+10)-position.y);
         double dist = sqrt(dx*dx + dy*dy);
         
         [self moveAhead:dist];
     }
 }
-}
+
 /*
 -(NSArray *) goTo:(CGPoint) point{
     CGPoint position = [self position];
